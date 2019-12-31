@@ -35,7 +35,7 @@ app.use("/", function (req, res) {
     clients.forEach(client => {
       result = result + client.user.tag + `<button type="button" onclick="window.location.href = '?a=rem&id=${client.user.id}'">Remove</button><br />`
     })
-    res.send('<button type="button" onclick="window.location.href = `?`">Main menu</button' + result)
+    res.send(v + '<button type="button" onclick="window.location.href = `?`">Main menu</button>' + result + style)
   }
 
   if(r.a == "rem" && r.id) {
