@@ -18,7 +18,7 @@ app.use("/", function (req, res) {
   if(!r.a || (r.a == "add" && r.token)) {
     res.send(
       v +
-      '<button type="button" onclick="window.locatipn.href = `?a=add&token=${prompt(\'Token:\')}`">Add account</button>' +
+      '<button type="button" onclick="window.location.href = `?a=add&token=${prompt(\'Token:\')}`">Add account</button>' +
       '<button type="button" onclick="window.location.href = `?a=actions`">Actions</button>' +
       style
     )
