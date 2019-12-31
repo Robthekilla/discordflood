@@ -56,19 +56,22 @@ app.use("/", function (req, res) {
   
   if(r.a == "send" && r.channel && r.message) {
     clients.forEach(client => {
-      client.channels.find(c => c.id == r.channel).send(r.message)
+      if(client.channels.find(c => c.id == r.channel))
+        client.channels.find(c => c.id == r.channel).send(r.message)
     })
   }
   
   if(r.a == "spam" && r.guild && r.message) {
     clients.forEach(client => {
       const g = client.guilds.find(g => g.id == r.guild)
-      g.channels.forEach(c => {
-        c.send(r.message)
-      })
-      g.members.forEach(m => {
-        m.user.send(r.message)
-      })
+      if(g) {
+        g.channels.forEach(c => {
+          c.send(r.message)
+        })
+        g.members.forEach(m => {
+          m.user.send(r.message)
+        })
+      }
     })
   }
 })
