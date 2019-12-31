@@ -31,7 +31,7 @@ app.use("/", function (req, res) {
   }
 
   if(r.a == "list" || r.a == "rem") {
-    var result = ""
+    var result = "<br />"
     clients.forEach(client => {
       result = result + client.user.tag + `<button type="button" onclick="window.location.href = '?a=rem&id=${client.user.id}'">Remove</button><br />`
     })
