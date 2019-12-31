@@ -19,12 +19,14 @@ app.use("/", function (req, res) {
     res.send('<button type="button" onclick="window.locatipn.href = `?a=add&token=${prompt(\'Token:\')}`">Add account</button>' +
       '<button type="button" onclick="window.location.href = `?a=actions`">Actions</button>'
     )
+  }
+  if(r.a == "add" && r.token) {
     const client = new Discord.Client()
     client.login(r.token)
     clients[clients.length] = client
   }
 
-  if(r.a == "actions") {
+  if(r.a == "actions" || r.a == "send || r.a == "spam") {
     res.send(
       '<button type="button" onclick="window.location.href = `?a=send&channel=${prompt(\'ChannelID:\')}&message=${prompt(\'Message:\')}`">Send</button>' +
       '<button type="button" onclick="window.location.href = `?a=spam&channel=${prompt(\'GuildID:\')}&message=${prompt(\'Message:\')}`">Spam</button>'
