@@ -1,3 +1,5 @@
+const port = 4000;
+
 const express = require("express")
 const Discord = require("discord.js")
 
