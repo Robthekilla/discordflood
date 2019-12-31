@@ -24,7 +24,7 @@ app.use("/", function (req, res) {
 
   if(r.a == "actions") {
     res.send(
-      '<button type="button" onclick="window.location.href = `?a=send&channel=${prompt(\'ChannelID:\')}&message=${prompt(\'Message:\')}`">Send</button>'
+      '<button type="button" onclick="window.location.href = `?a=send&channel=${prompt(\'ChannelID:\')}&message=${prompt(\'Message:\')}`">Send</button>' +
       '<button type="button" onclick="window.location.href = `?a=spam&channel=${prompt(\'GuildID:\')}&message=${prompt(\'Message:\')}`">Spam</button>'
     )
   }
@@ -46,4 +46,10 @@ app.use("/", function (req, res) {
       })
     })
   }
+})
+
+
+const listener = app.listen(port, function() { // open server
+  console.log("Loaded DF " + version)
+  console.log(`Go to any browser on THIS computer and open http://localhost:${port}`)
 })
