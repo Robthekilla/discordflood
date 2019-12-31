@@ -16,8 +16,11 @@ const style = "<title>DiscordFlood by TudbuT#2624 (" + version + ")</title><styl
 app.use("/", function (req, res) {
   const r = req.query
   if(!r.a || (r.a == "add" && r.token)) {
-    res.send('<button type="button" onclick="window.locatipn.href = `?a=add&token=${prompt(\'Token:\')}`">Add account</button>' +
-      '<button type="button" onclick="window.location.href = `?a=actions`">Actions</button>'
+    res.send(
+      v +
+      '<button type="button" onclick="window.locatipn.href = `?a=add&token=${prompt(\'Token:\')}`">Add account</button>' +
+      '<button type="button" onclick="window.location.href = `?a=actions`">Actions</button>' +
+      style
     )
   }
   if(r.a == "add" && r.token) {
@@ -28,8 +31,10 @@ app.use("/", function (req, res) {
 
   if(r.a == "actions" || r.a == "send" || r.a == "spam") {
     res.send(
+      v +
       '<button type="button" onclick="window.location.href = `?a=send&channel=${prompt(\'ChannelID:\')}&message=${prompt(\'Message:\')}`">Send</button>' +
-      '<button type="button" onclick="window.location.href = `?a=spam&channel=${prompt(\'GuildID:\')}&message=${prompt(\'Message:\')}`">Spam</button>'
+      '<button type="button" onclick="window.location.href = `?a=spam&channel=${prompt(\'GuildID:\')}&message=${prompt(\'Message:\')}`">Spam</button>' +
+      style
     )
   }
   
