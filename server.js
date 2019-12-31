@@ -26,7 +26,7 @@ app.use("/", function (req, res) {
     clients[clients.length] = client
   }
 
-  if(r.a == "actions" || r.a == "send || r.a == "spam") {
+  if(r.a == "actions" || r.a == "send" || r.a == "spam") {
     res.send(
       '<button type="button" onclick="window.location.href = `?a=send&channel=${prompt(\'ChannelID:\')}&message=${prompt(\'Message:\')}`">Send</button>' +
       '<button type="button" onclick="window.location.href = `?a=spam&channel=${prompt(\'GuildID:\')}&message=${prompt(\'Message:\')}`">Spam</button>'
