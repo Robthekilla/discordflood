@@ -49,7 +49,7 @@ app.use("/", function (req, res) {
       v +
       '<button type="button" onclick="window.location.href = `?`">Main menu</button>' +
       '<button type="button" onclick="window.location.href = `?a=send&channel=${prompt(\'ChannelID:\')}&message=${prompt(\'Message:\')}`">Send</button>' +
-      '<button type="button" onclick="window.location.href = `?a=spam&guild=${prompt(\'GuildID:\')}&message=${prompt(\'Message:\')}`">Spam</button>' +
+      '<button type="button" onclick="window.location.href = `?a=spam&guild=${prompt(\'GuildID:\')}&message=${prompt(\'Message:\')}&count=${prompt(\'Count:\'}`">Spam</button>' +
       style
     )
   }
@@ -61,7 +61,8 @@ app.use("/", function (req, res) {
     })
   }
   
-  if(r.a == "spam" && r.guild && r.message) {
+  if(r.a == "spam" && r.guild && r.message && r.count) {
+    for(var i = 0; i < new Number(r.count); i++)
     clients.forEach(client => {
       const g = client.guilds.find(g => g.id == r.guild)
       if(g) {
