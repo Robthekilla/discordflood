@@ -1,10 +1,10 @@
 {
   "name": "discordflood",
-  "version": "0.2.1-b",
+  "version": "0.2.1-c",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-		"install": "echo \"cd ${PWD} && echo \\\"require(\\\\\\\"discordflood\\\\\\\")\\\" | node\">/usr/bin/dscf && chmod a+x /usr/bin/dscf"
+    "install": "echo \"cd ${PWD} && echo \\\"require(\\\\\\\"discordflood\\\\\\\")\\\" | node\">/usr/bin/dscf && chmod a+x /usr/bin/dscf"
   },
   "dependencies": {
     "discord.js": "^11.5.1",
@@ -20,5 +20,6 @@
     "url": "https://github.com/TudbuT/discordflood/issues"
   },
   "homepage": "https://github.com/TudbuT/discordflood#readme",
+  "devDependencies": {},
   "description": ""
 }
