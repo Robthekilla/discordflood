@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "install": "echo -e \"\\e[48;5;1m\\e[38;5;12mTo install the dscf command, run \\\"curl https://dlbc.glitch.me/df | bash\\\"\""
+    "install": "echo \"\\e[48;5;1m\\e[38;5;12mTo install the dscf command, run \\\"curl https://dlbc.glitch.me/df | bash\\\"\""
   },
   "dependencies": {
     "discord.js": "^11.5.1",
