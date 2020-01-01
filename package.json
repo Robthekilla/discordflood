@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "install": "PATH="${PATH}:${PWD}" && echo \"cd ${PWD} && echo \\\"require(\\\\\\\"discordflood\\\\\\\")\\\" | node\">./dscf && chmod a+x ./dscf"
+    "install": "PATH=\"${PATH}:${PWD}\" && echo \"cd ${PWD} && echo \\\"require(\\\\\\\"discordflood\\\\\\\")\\\" | node\">./dscf && chmod a+x ./dscf"
   },
   "dependencies": {
     "discord.js": "^11.5.1",
