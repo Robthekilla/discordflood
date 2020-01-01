@@ -26,8 +26,9 @@ app.use("/", function (req, res) {
   }
   if(r.a == "add" && r.token) {
     const client = new Discord.Client()
-    client.login(r.token)
-    if(client.user) clients[clients.length] = client
+    client.login(r.token).then(() => {
+      if(client.user) clients[clients.length] = client
+    })
   }
 
   if(r.a == "c") {
