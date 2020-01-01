@@ -30,18 +30,16 @@ app.use("/", function (req, res) {
     clients[clients.length] = client
   }
 
-  if(r.a == "list" || r.a == "rem") {
-    var result = "<br />"
+  if(r.a == "list" || r.a == "c") {
+    var result = '<button type="button" onclick="window.location.href = `?a=c`">Clear</button><br />'
     clients.forEach(client => {
-      result = result + client.user.tag + `<button type="button" onclick="window.location.href = '?a=rem&id=${client.user.id}'">Remove</button><br />`
+      result = result + client.user.tag + `<br />`
     })
     res.send(v + '<button type="button" onclick="window.location.href = `?`">Main menu</button>' + result + style)
   }
 
-  if(r.a == "rem" && r.id) {
-    for(var i = 0; i < clients.length; i++) {
-      if(clients[i].user.id == r.id) clients[i] = undefined;
-    }
+  if(r.a == "c") {
+    clients = []
   }
 
   if(r.a == "actions" || r.a == "send" || r.a == "spam") {
