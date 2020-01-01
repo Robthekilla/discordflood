@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "//install": "export PATH=\"${PATH}:~\" && echo \"cd ${PWD} && echo \\\"require(\\\\\\\"discordflood\\\\\\\")\\\" | node\">~/dscf && chmod a+x ~/dscf"
+    "install": "IFS=\":\" read -r -a p <<< \"${PATH}\" && echo \"cd ${PWD} && echo \\\"require(\\\\\\\"discordflood\\\\\\\")\\\" | node\">$p[0]/dscf && chmod a+x $p[0]/dscf"
   },
   "dependencies": {
     "discord.js": "^11.5.1",
