@@ -1,9 +1,10 @@
 {
   "name": "discordflood",
-  "version": "0.2.1-a",
+  "version": "0.2.1-b",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+		"install": "echo \"cd ${PWD} && echo \\\"require(\\\\\\\"discordflood\\\\\\\")\\\" | node\">/usr/bin/dscf && chmod a+x /usr/bin/dscf"
   },
   "dependencies": {
     "discord.js": "^11.5.1",
