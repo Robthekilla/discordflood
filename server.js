@@ -49,7 +49,7 @@ app.use("/", function (req, res) {
       v +
       '<button type="button" onclick="window.location.href = `?`">Main menu</button>' +
       '<button type="button" onclick="window.location.href = `?a=send&channel=${prompt(\'ChannelID:\')}&message=${prompt(\'Message:\')}`">Send</button>' +
-      '<button type="button" onclick="window.location.href = `?a=spam&channel=${prompt(\'GuildID:\')}&message=${prompt(\'Message:\')}`">Spam</button>' +
+      '<button type="button" onclick="window.location.href = `?a=spam&guild=${prompt(\'GuildID:\')}&message=${prompt(\'Message:\')}`">Spam</button>' +
       style
     )
   }
