@@ -1,0 +1,23 @@
+{
+  "name": "discordflood",
+  "version": "0.2.1-a",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "express": "^4.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TudbuT/discordflood.git"
+  },
+  "author": "TudbuT",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TudbuT/discordflood/issues"
+  },
+  "homepage": "https://github.com/TudbuT/discordflood#readme",
+  "description": ""
+}
