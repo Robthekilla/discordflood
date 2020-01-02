@@ -14,70 +14,70 @@ const style = "<title>DiscordFlood by TudbuT#2624 (" + version + ")</title><styl
 
 
 app.use("/", function (req, res) {
-  const r = req.query;
-  if(!r.a || r.a === "add") {
-    res.send(
-        v +
-        '<button type="button" onclick="window.location.href = `?a=add&token=${prompt(\'Token:\')}`">Add account</button>' +
-        '<button type="button" onclick="window.location.href = `?a=list`">List</button>' +
-        '<button type="button" onclick="window.location.href = `?a=actions`">Actions</button>' +
-        style
-    )
-  }
-  if(r.a === "add" && r.token) {
-    const client = new Discord.Client();
-    client.login(r.token).then(() => {
-      if(client.user) clients[clients.length] = client
-    })
-  }
+    const r = req.query;
+    if(!r.a || r.a === "add") {
+        res.send(
+            v +
+            '<button type="button" onclick="window.location.href = `?a=add&token=${prompt(\'Token:\')}`">Add account</button>' +
+            '<button type="button" onclick="window.location.href = `?a=list`">List</button>' +
+            '<button type="button" onclick="window.location.href = `?a=actions`">Actions</button>' +
+            style
+        )
+    }
+    if(r.a === "add" && r.token) {
+        const client = new Discord.Client();
+        client.login(r.token).then(() => {
+            if(client.user) clients[clients.length] = client
+        })
+    }
 
-  if(r.a === "c") {
-    clients = []
-  }
+    if(r.a === "c") {
+        clients = []
+    }
 
-  if(r.a === "list" || r.a === "c") {
-    let result = '<button type="button" onclick="window.location.href = `?a=c`">Clear</button><br />';
-    clients.forEach(client => {
-      result = result + client.user.tag + `<br />`
-    });
-    res.send(v + '<button type="button" onclick="window.location.href = `?`">Main menu</button>' + result + style)
-  }
+    if(r.a === "list" || r.a === "c") {
+        let result = '<button type="button" onclick="window.location.href = `?a=c`">Clear</button><br />';
+        clients.forEach(client => {
+            result = result + client.user.tag + `<br />`
+        });
+        res.send(v + '<button type="button" onclick="window.location.href = `?`">Main menu</button>' + result + style)
+    }
 
-  if(r.a === "actions" || r.a === "send" || r.a === "spam") {
-    res.send(
-        v +
-        '<button type="button" onclick="window.location.href = `?`">Main menu</button>' +
-        '<button type="button" onclick="window.location.href = `?a=send&channel=${prompt(\'ChannelID:\')}&message=${prompt(\'Message:\')}`">Send</button>' +
-        '<button type="button" onclick="window.location.href = `?a=spam&guild=${prompt(\'GuildID:\')}&message=${prompt(\'Message:\')}&count=${prompt(\'Count:\')}`">Spam</button>' +
-        style
-    )
-  }
+    if(r.a === "actions" || r.a === "send" || r.a === "spam") {
+        res.send(
+            v +
+            '<button type="button" onclick="window.location.href = `?`">Main menu</button>' +
+            '<button type="button" onclick="window.location.href = `?a=send&channel=${prompt(\'ChannelID:\')}&message=${prompt(\'Message:\')}`">Send</button>' +
+            '<button type="button" onclick="window.location.href = `?a=spam&guild=${prompt(\'GuildID:\')}&message=${prompt(\'Message:\')}&count=${prompt(\'Count:\')}`">Spam</button>' +
+            style
+        )
+    }
 
-  if(r.a === "send" && r.channel && r.message) {
-    clients.forEach(client => {
-      if(client.channels.find(c => c.id === r.channel))
-        client.channels.find(c => c.id === r.channel).send(r.message)
-    })
-  }
+    if(r.a === "send" && r.channel && r.message) {
+        clients.forEach(client => {
+            if(client.channels.find(c => c.id === r.channel))
+                client.channels.find(c => c.id === r.channel).send(r.message)
+        })
+    }
 
-  if(r.a === "spam" && r.guild && r.message && r.count) {
-    for(var i = 0; i < Number(r.count); i++)
-      clients.forEach(client => {
-        const g = client.guilds.find(g => g.id === r.guild);
-        if(g) {
-          g.channels.forEach(c => {
-            c.send(r.message)
-          });
-          g.members.forEach(m => {
-            m.user.send(r.message)
-          })
-        }
-      })
-  }
+    if(r.a === "spam" && r.guild && r.message && r.count) {
+        for(var i = 0; i < Number(r.count); i++)
+            clients.forEach(client => {
+                const g = client.guilds.find(g => g.id === r.guild);
+                if(g) {
+                    g.channels.forEach(c => {
+                        c.send(r.message)
+                    });
+                    g.members.forEach(m => {
+                        m.user.send(r.message)
+                    })
+                }
+            })
+    }
 });
 
 
 app.listen(port, function() { // open server
-  console.log("Loaded DF " + version);
-  console.log(`Go to any browser on THIS computer and open http://localhost:${port}`)
+    console.log("Loaded DF " + version);
+    console.log(`Go to any browser on THIS computer and open http://localhost:${port}`)
 });
