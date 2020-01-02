@@ -1,6 +1,6 @@
 {
   "name": "discordflood",
-  "version": "0.2.1-f",
+  "version": "0.2.2-b",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
