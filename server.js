@@ -43,15 +43,14 @@ app.use("/", function (req, res) {
         res.send(v + '<button type="button" onclick="window.location.href = `?`">Main menu</button>' + result + style)
     }
 
-    if(r.a === "actions" || r.a === "send" || r.a === "spam") {
+    if(r.a === "actions" || r.a === "send" || r.a === "spam")
         res.send(
             v +
             '<button type="button" onclick="window.location.href = `?`">Main menu</button>' +
             '<button type="button" onclick="window.location.href = `?a=send&channel=${prompt(\'ChannelID:\')}&message=${prompt(\'Message:\')}`">Send</button>' +
             '<button type="button" onclick="window.location.href = `?a=spam&guild=${prompt(\'GuildID:\')}&message=${prompt(\'Message:\')}&count=${prompt(\'Count:\')}`">Spam</button>' +
             style
-        )
-    }
+        );
 
     if(r.a === "send" && r.channel && r.message) {
         clients.forEach(client => {
@@ -66,10 +65,12 @@ app.use("/", function (req, res) {
                 const g = client.guilds.find(g => g.id === r.guild);
                 if(g) {
                     g.channels.forEach(c => {
-                        c.send(r.message)
+                        if(c.send)
+                            c.send(r.message)
                     });
                     g.members.forEach(m => {
-                        m.user.send(r.message)
+                        if(m.send)
+                            m.user.send(r.message)
                     })
                 }
             })
